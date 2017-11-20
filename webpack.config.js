@@ -19,7 +19,8 @@ const config = {
   devtool: 'eval-source-map',
   resolve: {
     alias: {
-      components: path.resolve(__dirname, 'src/components/')
+      components: path.resolve(__dirname, 'src/components/'),
+      actions: path.resolve(__dirname, 'src/actions/')
     }
   },
   plugins: [

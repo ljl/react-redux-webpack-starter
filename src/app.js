@@ -1,4 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './reducers/index';
+import CommitList from 'components/CommitList';
 
-render(<h1>Hello World</h1>, document.querySelector('#app'));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
+
+render(
+  <Provider store={store}>
+    <CommitList />
+  </Provider>,
+  document.querySelector('#app')
+);
