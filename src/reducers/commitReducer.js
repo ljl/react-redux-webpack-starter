@@ -6,11 +6,11 @@ export default function reducer(
   action
 ) {
   switch (action.type) {
-    case 'GET_COMMITS':
+    case "FETCH_COMMITS":
       return { ...state, commits: [], loading: true };
-    case 'GET_COMMITS_SUCCESS':
+    case "FETCH_COMMITS_SUCCESS":
       return { ...state, commits: action.payload, loading: false };
-    case 'GET_COMMITS_FAILED':
+    case "FETCH_COMMITS_FAILED":
       return { ...state, commits: [], loading: false };
     default:
       return state;

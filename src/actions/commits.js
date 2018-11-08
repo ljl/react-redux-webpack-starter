@@ -1,17 +1,17 @@
-import axios from 'axios';
+import axios from "axios";
 
-export function getCommits() {
+export function fetchCommits() {
   return dispatch => {
-    dispatch({ type: 'GET_COMMITS' });
+    dispatch({ type: "FETCH_COMMITS" });
     axios
       .get(
         `https://api.github.com/repos/ljl/react-redux-webpack-starter/commits`
       )
       .then(response => {
-        dispatch({ type: 'GET_COMMITS_SUCCESS', payload: response.data });
+        dispatch({ type: "FETCH_COMMITS_SUCCESS", payload: response.data });
       })
       .catch(err => {
-        dispatch({ type: 'GET_COMMITS_FAILED', payload: err });
+        dispatch({ type: "FETCH_COMMITS_FAILED", payload: err });
       });
   };
 }
