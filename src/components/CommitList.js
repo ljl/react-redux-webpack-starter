@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { getCommits } from 'actions/commits';
+import React, { Component } from "react";
+
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getCommits } from "actions/commits";
 
 class CommitList extends Component {
-  componentWillMount() {
-    this.props.dispatch(getCommits());
+  constructor(props) {
+    super(props);
+    props.dispatch(getCommits());
   }
   render() {
     return (
